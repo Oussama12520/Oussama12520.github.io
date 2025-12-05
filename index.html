@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizMaster - Transform Your Discord Server into a Competitive Quiz Arena</title>
+
+    <!-- Meta Description -->
+    <meta name="description"
+        content="QuizMaster is a free Discord bot that transforms your server into a competitive quiz arena. 100+ tech questions, real-time leaderboards, and beautiful UI. No setup required!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://quizmaster-bot.com">
+    <meta property="og:title" content="QuizMaster - Discord Quiz Bot">
+    <meta property="og:description"
+        content="Transform Your Discord Server into a Competitive Quiz Arena! Free forever with 100+ tech questions.">
+    <meta property="og:image" content="avatar.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://quizmaster-bot.com">
+    <meta property="twitter:title" content="QuizMaster - Discord Quiz Bot">
+    <meta property="twitter:description"
+        content="Transform Your Discord Server into a Competitive Quiz Arena! Free forever with 100+ tech questions.">
+    <meta property="twitter:image" content="avatar.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="avatar.jpg">
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-description {
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 60px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .how-it-works {
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            padding: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            background: #fff;
+            color: #667eea;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pricing {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .price-label {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .instagram-link {
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+            border-radius: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(131, 58, 180, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <img src="avatar.jpg" alt="QuizMaster Bot Avatar"
+                style="width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border: 5px solid white;">
+            <h1>🎮 QuizMaster</h1>
+            <p class="tagline">Transform Your Discord Server into a Competitive Quiz Arena!</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1442964423714017312&permissions=8&integration_type=0&scope=bot"
+                class="cta-button">
+                ⚡ Add to Discord for Free!
+            </a>
+        </header>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Tech Questions</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Uptime</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">∞</span>
+                <span class="stat-label">Players</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">0s</span>
+                <span class="stat-label">Setup Time</span>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3 class="feature-title">Instant Setup</h3>
+                <p class="feature-description">No installation, no hosting, no configuration. Just click invite and
+                    start playing!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3 class="feature-title">Competitive Fun</h3>
+                <p class="feature-description">Real-time competition with global leaderboards and automatic Grand
+                    Champion role.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">💻</div>
+                <h3 class="feature-title">Tech Questions</h3>
+                <p class="feature-description">100+ questions covering programming, web dev, databases, and more!</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Beautiful UI</h3>
+                <p class="feature-description">Colorful embeds, progress bars, countdown timers, and emoji reactions.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3 class="feature-title">Stats & Profiles</h3>
+                <p class="feature-description">Track player stats, view profiles, and see detailed quiz history.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🛠️</div>
+                <h3 class="feature-title">Easy Management</h3>
+                <p class="feature-description">Simple admin commands. No technical knowledge required.</p>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Invite Bot</h3>
+                    <p>Click the invite link and select your server</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Set Channel</h3>
+                    <p>Type !setchannelquiz #your-channel</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Start Playing</h3>
+                    <p>Type !start and compete with friends!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Pricing</h2>
+            <div class="price">$0</div>
+            <p class="price-label">Free Forever!</p>
+            <p style="margin-top: 20px; opacity: 0.9;">
+                ✅ All features included<br>
+                ✅ No credit card required<br>
+                ✅ No hidden fees<br>
+                ✅ Unlimited usage
+            </p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1442964423714017312&permissions=8&integration_type=0&scope=bot"
+                class="cta-button" style="margin-top: 30px;">
+                Get Started Now
+            </a>
+        </div>
+
+        <footer>
+            <img src="avatar.jpg" alt="QuizMaster Bot"
+                style="width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; border: 3px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+            <p style="font-size: 1.2rem; margin-bottom: 10px;">Ready to transform your Discord server?
+            </p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1442964423714017312&permissions=8&integration_type=0&scope=bot"
+                class="cta-button">
+                Add QuizMaster to Discord
+            </a>
+            <p style="margin-top: 40px; opacity: 0.9; font-size: 1.1rem;">
+                📞 <strong>Support</strong><br>
+                <a href="https://www.instagram.com/ous7x_/" target="_blank" rel="noopener noreferrer"
+                    class="instagram-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                    @ous7x_ on Instagram
+                </a>
+            </p>
+            <p style="margin-top: 30px; opacity: 0.7;">
+                Made with ❤️ for Discord communities<br>
+                © 2025 QuizMaster Bot
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
